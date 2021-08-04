@@ -13,6 +13,7 @@ class App extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleChange(event) {
@@ -24,6 +25,11 @@ class App extends React.Component {
     this.setState({ tasks: this.state.tasks.concat(this.state.task),
                     task: { text: '', id: uniqid() }, });
   }
+
+  handleDelete(event) {
+    this.setState({ tasks: this.state.tasks.filter(task => task.id !== event.target.id) })
+  }
+
   render() {
     const { task, tasks } = this.state;
 
@@ -34,7 +40,7 @@ class App extends React.Component {
           <input type="text" id="taskInput" value={task.text} onChange={this.handleChange} />
           <button type="submit" onClick={this.handleSubmit}>Submit</button>
         </form>
-        <Overview tasks={tasks} />
+        <Overview tasks={tasks} handleDelete={this.handleDelete} />
         <p>Tasks count: {tasks.length}</p>
       </div>
     );
