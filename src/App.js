@@ -9,6 +9,7 @@ class App extends React.Component {
     this.state = {
       task: { text: '', id: uniqid() },
       tasks: [],
+      isEditing: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -27,7 +28,7 @@ class App extends React.Component {
   }
 
   handleDelete(event) {
-    this.setState({ tasks: this.state.tasks.filter(task => task.id !== event.target.id) })
+    this.setState({ tasks: this.state.tasks.filter(task => task.id !== event.target.value) })
   }
 
   render() {
@@ -41,7 +42,7 @@ class App extends React.Component {
           <button type="submit" onClick={this.handleSubmit}>Submit</button>
         </form>
         <Overview tasks={tasks} handleDelete={this.handleDelete} />
-        <p>Tasks count: {tasks.length}</p>
+        { tasks.length>0 && <p>Tasks count: {tasks.length}</p> }
       </div>
     );
   }
