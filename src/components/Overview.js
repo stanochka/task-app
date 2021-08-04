@@ -10,8 +10,8 @@ class Overview extends React.Component {
 
     return (
       <ul>
-        {tasks.map((task) => {
-          return <li key={task.id}>{task.text}</li>;
+        {tasks.map((task, i) => {
+          return <li key={task.id}><strong>{i+1})</strong> {task.text}</li>;
         })}
       </ul>
     );

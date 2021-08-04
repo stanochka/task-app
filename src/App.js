@@ -35,6 +35,7 @@ class App extends React.Component {
           <button type="submit" onClick={this.handleSubmit}>Submit</button>
         </form>
         <Overview tasks={tasks} />
+        <p>Tasks count: {tasks.length}</p>
       </div>
     );
   }
