@@ -8,8 +8,7 @@ const Overview = (props) => {
       {tasks.map((task, i) => {
         return (<li key={task.id}>
                   <strong>{i+1})</strong>
-                  {task.text}
-                  <button id={task.id} onClick={handleDelete}>Delete</button>
+                  <button value={task.id} onClick={handleDelete}>Delete</button>
                 </li>
                 );
       })}
