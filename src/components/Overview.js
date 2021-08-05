@@ -7,7 +7,7 @@ const Overview = (props) => {
     <ul>
       {tasks.map((task, i) => {
         return (<li key={task.id}>
-                  <strong>{i+1})</strong>
+                  <strong>{i+1})</strong> { task.text }
                   <button value={task.id} onClick={handleDelete}>Delete</button>
                 </li>
                 );

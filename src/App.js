@@ -9,7 +9,6 @@ class App extends React.Component {
     this.state = {
       task: { text: '', id: uniqid() },
       tasks: [],
-      isEditing: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
